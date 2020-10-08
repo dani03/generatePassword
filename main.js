@@ -5,6 +5,8 @@ let options = document.querySelector('#options');
 const size = document.querySelector('#size');
 const slider = document.querySelector('#slider');
 const displayer = document.querySelector('#displayer');
+displayer.style.cursor = "pointer";
+displayer.style.background = "#F0F0F0";
 
 
 size.addEventListener('input',(e) => {
@@ -35,6 +37,18 @@ function rangaFromList(){
         `;
     });
 }
+displayer.addEventListener('click', function(e){
+    console.log('al');
+  
+    var tmp_input = document.createElement('input');
+    tmp_input.value = this.textContent;
+    tmp_input.select();
+    tmp_input.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    displayer.value = tmp_input.value;
+    console.log(tmp_input.value);
+});
+
 options.addEventListener('click', (e) => {
     console.log(e.target.type);
     
