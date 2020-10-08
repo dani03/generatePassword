@@ -23,13 +23,11 @@ class Password {
 
     getChars() {
         let chars = '';
-
         this.data.forEach(obj => {
             if (obj.range & this.range) {
                 chars += obj.chars;
             }
         });
-
         return chars;
     }
 
